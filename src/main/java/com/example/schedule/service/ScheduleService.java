@@ -28,6 +28,7 @@ public class ScheduleService {
         return scheduleRepository.findById(id);
     }
 
+    // Lv2: 수정 로직 추가
     public void update(Long id, ScheduleRequestDto dto) {
         String password = scheduleRepository.findPasswordById(id);
         if (!dto.getPassword().equals(password)) {
@@ -36,6 +37,7 @@ public class ScheduleService {
         scheduleRepository.update(id, dto);
     }
 
+    // Lv2: 삭제 로직 추가
     public void delete(Long id, ScheduleRequestDto dto) {
         String password = scheduleRepository.findPasswordById(id);
         if (!dto.getPassword().equals(password)) {

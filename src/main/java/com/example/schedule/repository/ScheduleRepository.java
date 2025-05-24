@@ -51,16 +51,19 @@ public class ScheduleRepository {
         );
     }
 
+    // Lv2: 비밀번호 단건 조회용 메서드
     public String findPasswordById(Long id) {
         String sql = "SELECT password FROM schedule WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, String.class, id);
     }
 
+    // Lv2: 수정 쿼리
     public void update(Long id, ScheduleRequestDto dto) {
         String sql = "UPDATE schedule SET title = ?, username = ?, modified_at = NOW() WHERE id = ?";
         jdbcTemplate.update(sql, dto.getTitle(), dto.getUsername(), id);
     }
 
+    // Lv2: 삭제 쿼리
     public void delete(Long id) {
         String sql = "DELETE FROM schedule WHERE id = ?";
         jdbcTemplate.update(sql, id);

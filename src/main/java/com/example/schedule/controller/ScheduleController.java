@@ -34,6 +34,7 @@ public class ScheduleController {
         return scheduleService.getById(id);
     }
 
+    // Lv2: 일정 수정 API (비밀번호 일치 시 수정 허용)
     @PutMapping("/{id}")
     public ResponseEntity<String> updateSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto dto) {
         try {
@@ -44,6 +45,7 @@ public class ScheduleController {
         }
     }
 
+    // Lv2: 일정 삭제 API (비밀번호 일치 시 삭제 허용)
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto dto) {
         try {
